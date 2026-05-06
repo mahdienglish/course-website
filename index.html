@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="index.html">Course Finder</a>
+        <div class="nav-links">
+          <a href="admin.html">Admin</a>
+          <a aria-current="page" href="index.html">Search Courses</a>
+        </div>
+      </nav>
+      <section class="hero">
+        <p class="eyebrow">Training opportunities in one place</p>
+        <h1>Search available courses</h1>
+        <p>Find courses by name, category, institute, instructor, gender availability, or schedule.</p>
+      </section>
+    </header>
+
+    <main class="container">
+      <section class="panel search-panel" aria-labelledby="search-heading">
+        <div>
+          <p class="eyebrow">Course search</p>
+          <h2 id="search-heading">Filter the catalog</h2>
+        </div>
+        <form id="search-form" class="search-form">
+          <label>
+            Search keywords
+            <input id="keyword" type="search" placeholder="Course, institute, category, instructor..." />
+          </label>
+          <label>
+            Category
+            <select id="category-filter">
+              <option value="">All categories</option>
+            </select>
+          </label>
+          <label>
+            Gender availability
+            <select id="gender-filter">
+              <option value="">Any</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </label>
+          <button class="button secondary" type="reset">Clear filters</button>
+        </form>
+      </section>
+
+      <section class="results-heading" aria-live="polite">
+        <h2 id="results-title">Courses</h2>
+        <p id="result-count"></p>
+      </section>
+      <section id="courses-list" class="course-grid" aria-label="Course results"></section>
+    </main>
+
+    <template id="course-card-template">
+      <article class="course-card">
+        <img class="course-image" alt="" />
+        <div class="course-content">
+          <div class="course-topline">
+            <span class="badge category"></span>
+            <span class="badge length"></span>
+          </div>
+          <h3></h3>
+          <p class="institute"></p>
+          <dl class="course-details">
+            <div><dt>Start</dt><dd class="start"></dd></div>
+            <div><dt>End</dt><dd class="end"></dd></div>
+            <div><dt>Instructor</dt><dd class="instructor"></dd></div>
+            <div><dt>Available for</dt><dd class="genders"></dd></div>
+          </dl>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

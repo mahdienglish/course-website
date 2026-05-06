@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Course Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header compact">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="brand" href="index.html">Course Finder</a>
+        <div class="nav-links">
+          <a aria-current="page" href="admin.html">Admin</a>
+          <a href="index.html">Search Courses</a>
+        </div>
+      </nav>
+      <section class="hero">
+        <p class="eyebrow">Administrator area</p>
+        <h1>Add and manage courses</h1>
+        <p>Use the form below to publish courses to the searchable course catalog.</p>
+      </section>
+    </header>
+
+    <main class="container admin-layout">
+      <section class="panel" aria-labelledby="admin-form-heading">
+        <div class="section-title">
+          <p class="eyebrow">New course</p>
+          <h2 id="admin-form-heading">Course details</h2>
+        </div>
+        <form id="course-form" class="course-form">
+          <label>
+            Course name
+            <input name="name" type="text" placeholder="e.g. Web Development Bootcamp" required />
+          </label>
+          <label>
+            Course image URL
+            <input name="image" type="url" placeholder="https://example.com/course.jpg" required />
+          </label>
+          <label>
+            Course category
+            <input name="category" type="text" placeholder="e.g. Technology" required />
+          </label>
+          <label>
+            Institute name
+            <input name="institute" type="text" placeholder="e.g. Future Skills Institute" required />
+          </label>
+          <div class="form-row">
+            <label>
+              Start date
+              <input name="start" type="date" required />
+            </label>
+            <label>
+              End date
+              <input name="end" type="date" required />
+            </label>
+          </div>
+          <label>
+            Days length
+            <input name="daysLength" type="number" min="1" placeholder="30" required />
+          </label>
+          <fieldset>
+            <legend>Course availability</legend>
+            <label class="checkbox-label">
+              <input name="male" type="checkbox" />
+              Male
+            </label>
+            <label class="checkbox-label">
+              <input name="female" type="checkbox" />
+              Female
+            </label>
+          </fieldset>
+          <label>
+            Male instructor name
+            <input name="maleInstructor" type="text" placeholder="e.g. Ahmed Hassan" required />
+          </label>
+          <button class="button" type="submit">Add course</button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="saved-courses-heading">
+        <div class="section-title split">
+          <div>
+            <p class="eyebrow">Catalog</p>
+            <h2 id="saved-courses-heading">Saved courses</h2>
+          </div>
+          <button id="clear-courses" class="button danger" type="button">Clear all</button>
+        </div>
+        <div id="admin-course-list" class="admin-course-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
